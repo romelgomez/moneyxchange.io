@@ -1,0 +1,121 @@
+<ngx-spinner type="pacman" size="large"></ngx-spinner>
+<ng-snotify class="dark"></ng-snotify>
+
+
+<div class="landing">
+
+  <div class="menu-container">
+    <div class="img-container">
+      <img src="https://via.placeholder.com/100x100" class="rounded-circle">
+    </div>
+  </div>
+
+  <div class="exchange-form-container">
+
+    <!-- [from][amount] [to][resutl] -->
+    <form [formGroup]="exchangeForm" class="exchange-form" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">De:</label>
+                        <select class="form-control" id="from" formControlName="from">
+                            <option *ngFor="let item of symbols | keyvalue" value="{{item.key}}">{{item.value}} - {{item.key}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">A:</label>
+                        <select class="form-control" id="to" formControlName="to">
+                            <option *ngFor="let item of symbols | keyvalue" value="{{item.key}}">{{item.value}} - {{item.key}}</option>
+                        </select>
+                    </div>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="amount" name="amount" formControlName="amount" placeholder="" aria-describedby="nameHelp" >
+                        <div *ngIf="inputInstance('amount').invalid && (inputInstance('amount').dirty || inputInstance('amount').touched)" class="error-message-container">
+                            <div *ngIf="inputInstance('amount')" class="error-message">
+                                <span>{{ errorMessages('amount') }}</span>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="col-12">
+                    <div class="result">
+                        <h2>
+                            {{((inputInstance('amount').value * latest['rates'][inputInstance('to').value]) / latest['rates'][inputInstance('from').value])}} 
+                            {{inputInstance('to').value}}        
+                        </h2>            
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="formula">
+                        <small><b>Formula: amount*rates['to'])/rates['from']</b></small> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    
+  </div>
+
+
+  <div class="historic-price-container">
+      <div class="section-content">
+          <div class="title">
+            <h2>Historic Price</h2>
+            <small>We need pro access to the API to see this. The next section is just static code.</small>
+          </div>
+
+          <div class="historic-price-list">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+                    <div class="col-md-6 historic-price-item">
+                        <div class="title">Title</div>
+                        <div class="details">Some details</div>
+                    </div>
+      
+
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+</div>
+
+  

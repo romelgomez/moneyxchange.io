@@ -1,0 +1,41 @@
+.exchange-form-container {
+    background: aquamarine;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+
+    .exchange-form {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    
+    .result, .formula {
+        text-align: center;   
+    }
+}
+
+.menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .img-container {
+        text-align: center;
+    }
+}
+
+.historic-price-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .historic-price-list {
+        font-size: 16px;
+        font-family: 'Dosis', sans-serif;
+        .title {
+            font-weight: bold;
+        }    
+    }  
+}
+
+
